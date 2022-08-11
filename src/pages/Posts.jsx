@@ -96,25 +96,25 @@ class Posts extends Component {
 				<h3>Let's try to add, change or delete posts!</h3>
 				<div className='wrapper'>
 					<form onSubmit={this.HandleAddPost} >
-						<input value = {this.state.newPostTitle ? this.state.newPostTitle : ''  } 
+						<input value = {this.state.newPostTitle ? this.state.newPostTitle : ''  }
                          onChange={this.HandleAddInput} type='text' placeholder='Write new title'></input>
-						<textarea value = {this.state.newPostBody ? this.state.newPostBody : ''  } 
+						<textarea value = {this.state.newPostBody ? this.state.newPostBody : ''  }
                             onChange={this.HandleAddTextArea} placeholder='Write new description'></textarea>
 						<button>Add new post</button>
 					</form>
 					<form onSubmit={this.HandleChangePost} >
-						<input ref={this.focusInput} value = {this.state.inputChangeTitle ? this.state.inputChangeTitle : ''  } 
+						<input ref={this.focusInput} value = {this.state.inputChangeTitle ? this.state.inputChangeTitle : ''  }
                          onChange={this.HandleChangeInput} placeholder='Edit title'></input>
-						<textarea value = {this.state.textareaChangeDescription ? this.state.textareaChangeDescription : ''  } 
+						<textarea value = {this.state.textareaChangeDescription ? this.state.textareaChangeDescription : ''  }
                             onChange={this.HandleChangeTextArea} placeholder='Edit description'></textarea>
 						<button disabled={this.state.disabledBtnChange}>Change post</button>
 					</form>
 				</div>
 				<ul>
-					{this.state.posts? this.state.posts.map((item, index)=> 
+					{this.state.posts? this.state.posts.map((item, index)=>
 						<li key={index} id={item.id}>
 							<h4>#{item.id} Title: {item.title}</h4>
-							<p>Description: {item.body}</p> 
+							<p>Description: {item.body}</p>
 							<button onClick={this.btnDelete}>Delete</button>
 							<button onClick={this.btnChange}>Change</button>
 						</li>) : undefined}
