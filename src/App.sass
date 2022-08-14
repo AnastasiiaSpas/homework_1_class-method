@@ -1,12 +1,18 @@
+*
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+	
 .App
 	text-align: center 	
 	h3
 		font-size: 25px
-		
+		padding: 20px
 .wrapper
 	display: flex
 	gap: 20px
 	justify-content: center
+	margin-bottom: 20px
 
 
 form
@@ -14,30 +20,69 @@ form
 	display: flex
 	flex-direction: column
 	justify-content: center
+	border-radius: 15px
 	gap: 10px
-	border: 1px solid black
 	padding: 20px
-	width: fit-content
-	margin-bottom: 20px
+	width: 40%
 	background: aliceblue
 	border-radius: 5px
 	input
-		padding: 5px
-		width: 20vw
+		padding:10px
+		border:0
+		box-shadow:0 0 15px 4px rgba(0,0,0,0.06)
+		width: 100%
+		border-radius: 5px
 	button
 		padding: 10px
+		border: 1px solid transparent
+		border-radius: 15px
+		background: #5540de
+		color: #fff
+		&:hover
+			cursor: pointer
+			background: #fff
+			color: #5540de
+			border: 1px solid #5540de
+		&.disabled
+			background: #eee
+			color: #0c0636
+		&.change-form
+			background: #fd6638
+			color: #fff
+		
+	textarea
+		padding:10px
+		border:0
+		box-shadow:0 0 15px 4px rgba(0,0,0,0.06)
+		width: 100%
+		resize: vertical
+		border-radius: 5px
 
 ul
 	list-style-type: none
-	margin: 0
 	padding: 10px
 	li
 		margin-bottom: 20px
 		padding: 10px
 		background: aliceblue
 	h4
-		margin: 0
+		padding: 10px
 		font-size: 20px
+	p
+		padding: 10px
 	button
 		margin-right: 20px
 		padding: 5px
+		width: 10%
+		&.delete:hover
+			background: #ff5252
+			color: #ffffff
+			border: 1px solid transparent
+			cursor: pointer
+		&.change:hover
+			background: #fd6638
+			color: #fff
+			border: 1px solid transparent
+			cursor: pointer
+		
+

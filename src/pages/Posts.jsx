@@ -63,7 +63,8 @@ class Posts extends Component {
 
 			this.setState({
 				inputChangeTitle: '',
-				textareaChangeDescription: ''
+				textareaChangeDescription: '',
+				disabledBtnChange: true
 			})
 
 			alert(`The post ${this.state.inputChangeTitle} changed`)
@@ -117,10 +118,10 @@ class Posts extends Component {
 				<ul>
 					{this.state.posts? this.state.posts.map((item, index)=>
 						<li key={index} id={item.id}>
-							<h4>#{item.id} Title: {item.title}</h4>
+							<h4>{item.id}. Title: {item.title}</h4>
 							<p>Description: {item.body}</p>
-							<button onClick={this.btnDelete}>Delete</button>
-							<button onClick={this.btnChange}>Change</button>
+							<button onClick={this.btnDelete} className={`delete`}>Delete</button>
+							<button onClick={this.btnChange} className={`change`}>Change</button>
 						</li>) : undefined}
 				</ul>
 			</>

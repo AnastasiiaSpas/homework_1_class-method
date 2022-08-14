@@ -8,7 +8,7 @@ class ChangeForm extends Component {
 					onChange={this.props.HandleChangeInput} placeholder='Edit title'></input>
 				<textarea value = {this.props.textareaChangeDescription ? this.props.textareaChangeDescription : ''  }
 					onChange={this.props.HandleChangeTextArea} placeholder='Edit description'></textarea>
-				<button disabled={this.props.disabledBtnChange}>Change post</button>
+				<button disabled={this.props.disabledBtnChange} className={this.props.disabledBtnChange? `disabled` : `change-form`}>Change post</button>
 			</form>
 		);
 	}
