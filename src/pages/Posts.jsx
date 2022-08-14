@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import JsonPlaceholder from './../services/Jsonplaceholder';
+import NewForm from '../components/NewForm';
+import ChangeForm from '../components/ChangeForm';
 
 class Posts extends Component {
 	state = {
@@ -12,7 +14,7 @@ class Posts extends Component {
 		disabledBtnChange: true,
 	}
 
-	focusInput = React.createRef()
+	focusInput = createRef()
 
 	componentDidMount(){
 	 (async () => {
@@ -95,20 +97,22 @@ class Posts extends Component {
 			<>
 				<h3>Let's try to add, change or delete posts!</h3>
 				<div className='wrapper'>
-					<form onSubmit={this.HandleAddPost} >
-						<input value = {this.state.newPostTitle ? this.state.newPostTitle : ''  }
-							onChange={this.HandleAddInput} type='text' placeholder='Write new title'></input>
-						<textarea value = {this.state.newPostBody ? this.state.newPostBody : ''  }
-							onChange={this.HandleAddTextArea} placeholder='Write new description'></textarea>
-						<button>Add new post</button>
-					</form>
-					<form onSubmit={this.HandleChangePost} >
-						<input ref={this.focusInput} value = {this.state.inputChangeTitle ? this.state.inputChangeTitle : ''  }
-							onChange={this.HandleChangeInput} placeholder='Edit title'></input>
-						<textarea value = {this.state.textareaChangeDescription ? this.state.textareaChangeDescription : ''  }
-							onChange={this.HandleChangeTextArea} placeholder='Edit description'></textarea>
-						<button disabled={this.state.disabledBtnChange}>Change post</button>
-					</form>
+					<NewForm 
+						newPostTitle={this.state.newPostTitle}
+						newPostBody={this.state.newPostBody}
+						HandleAddPost={this.HandleAddPost}
+						HandleAddInput={this.HandleAddInput}
+						HandleAddTextArea={this.HandleAddTextArea}
+					/>
+					<ChangeForm
+						inputChangeTitle={this.state.inputChangeTitle}
+						textareaChangeDescription={this.state.textareaChangeDescription}
+						disabledBtnChange={this.state.disabledBtnChange}
+						HandleChangePost={this.HandleChangePost}
+						HandleChangeInput={this.HandleChangeInput}
+						HandleChangeTextArea={this.HandleChangeTextArea}
+						focusInput={this.focusInput}
+					/>
 				</div>
 				<ul>
 					{this.state.posts? this.state.posts.map((item, index)=>
